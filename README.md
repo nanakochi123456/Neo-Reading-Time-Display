@@ -21,4 +21,5 @@ WPROOT/wp-content/plugins/Neo-Reading-Time-Display ディレクトリを作成�
 無効化して削除
 
 ## バージョン履歴
+v0.11 - 計算方法の見直し、HTMLタグもカウントに入れてたのを修正<br>
 v0.1 - 初版
