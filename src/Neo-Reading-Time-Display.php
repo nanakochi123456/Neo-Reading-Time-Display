@@ -2,7 +2,7 @@
 /*
 Plugin Name: Neo Reading Time Display
 Description: 記事ページの先頭に「この記事は〇分〇秒で読めます」を表示するプラグイン
-Version: 0.12
+Version: 0.13
 Author: Nano Yozakura
 */
 
@@ -21,7 +21,7 @@ function calculate_reading_time($content) {
         if ($minutes > 0) {
             $reading_time .= "{$minutes}分";
         }
-        if ($seconds > 0 || $minutes == 0) {
+        if ($seconds > 0 || $minutes >= 0) {
             $reading_time .= "{$seconds}秒";
         }
         $reading_time .= "ぐらいで読めるなの";
@@ -30,4 +30,7 @@ function calculate_reading_time($content) {
     }
     return $content;
 }
+// top
 add_filter('the_content', 'calculate_reading_time');
+// アイキャッチよりも上
+//add_action('tha_entry_top', 'calculate_reading_time');
