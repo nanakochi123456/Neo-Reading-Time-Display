@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+.reading-time {
+	display: inline-block;
+	font-size: 16px;
+	color: #000;
+	background-color: #ffafcc;
+	padding: 8px 12px;
+	border-radius: 12px;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+	border: 2px solid #ff85a2;
+	font-family: 'M PLUS Rounded 1c', 'Arial', 'sans-serif';
+	transition: transform 0.2s ease-in-out;
+}
+
+.reading-time:hover {
+	transform: scale(1.05);
+	background-color: #ffc2d1;
+}

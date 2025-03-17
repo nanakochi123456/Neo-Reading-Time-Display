@@ -21,6 +21,8 @@ WPROOT/wp-content/plugins/Neo-Reading-Time-Display ディレクトリを作成�
 無効化して削除
 
 ## バージョン履歴
+v0.14 - オレオレ環境のCSSを追加
+
 v0.13 - 1以上分0秒が表示されないのを修正
 
 v0.12 - 計算方法のさらなる見直し

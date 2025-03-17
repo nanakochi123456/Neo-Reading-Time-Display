@@ -2,7 +2,7 @@
 /*
 Plugin Name: Neo Reading Time Display
 Description: 記事ページの先頭に「この記事は〇分〇秒で読めます」を表示するプラグイン
-Version: 0.13
+Version: 0.14
 Author: Nano Yozakura
 */
 
@@ -26,7 +26,7 @@ function calculate_reading_time($content) {
         }
         $reading_time .= "ぐらいで読めるなの";
         
-        $content = "<p><strong>{$reading_time}</strong></p>" . $content;
+        $content = "<div class='reading-time'>{$reading_time}</div>" . $content;
     }
     return $content;
 }
@@ -34,3 +34,18 @@ function calculate_reading_time($content) {
 add_filter('the_content', 'calculate_reading_time');
 // アイキャッチよりも上
 //add_action('tha_entry_top', 'calculate_reading_time');
+
+// CSSを挿入
+function Neo_Reading_Time_enqueue_styles() {
+    $css_file = plugin_dir_path(__FILE__) . 'Neo-Reading-Time-Display.css';
+    $css_url = plugin_dir_url(__FILE__) . 'Neo-Reading-Time-Display.css';
+
+    // タイムスタンプをクエリ文字列として付加
+    wp_enqueue_style(
+        'Neo-Reading-Time-style', 
+        $css_url,
+        array(), // 依存関係なし
+        file_exists($css_file) ? filemtime($css_file) : false // タイムスタンプをバージョンに使用
+    );
+}
+add_action('wp_enqueue_scripts', 'Neo_Reading_Time_enqueue_styles');
